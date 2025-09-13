@@ -1,0 +1,196 @@
+# I/O Protocol Specification v1.0
+version: "1.0"
+description: "Standard input/output message schemas and contracts for dot-agents system"
+
+# Base Message Schema
+base_message:
+  type: object
+  required: ["type", "version", "timestamp"]
+  properties:
+    type:
+      type: string
+      description: "Message type identifier"
+    version:
+      type: string
+      description: "Schema version"
+    timestamp:
+      type: string
+      format: date-time
+      description: "ISO 8601 timestamp"
+    correlation_id:
+      type: string
+      description: "Optional correlation ID for request tracking"
+
+# Input Message Types
+input_schemas:
+  task.plan.v1:
+    allOf:
+      - $ref: "#/base_message"
+      - type: object
+        properties:
+          type:
+            const: "task.plan.v1"
+          payload:
+            type: object
+            required: ["task_description", "requirements"]
+            properties:
+              task_description:
+                type: string
+                description: "Natural language description of the task"
+              requirements:
+                type: array
+                items:
+                  type: string
+                description: "List of specific requirements"
+              constraints:
+                type: object
+                description: "Optional constraints and limitations"
+              context:
+                type: object
+                description: "Additional context information"
+
+  code.diff.v1:
+    allOf:
+      - $ref: "#/base_message"
+      - type: object
+        properties:
+          type:
+            const: "code.diff.v1"
+          payload:
+            type: object
+            required: ["diff_content", "file_path"]
+            properties:
+              diff_content:
+                type: string
+                description: "Git diff format content"
+              file_path:
+                type: string
+                description: "Path to the file being modified"
+              repository_context:
+                type: object
+                description: "Repository information and context"
+
+# Output Message Types
+output_schemas:
+  review.report.v1:
+    allOf:
+      - $ref: "#/base_message"
+      - type: object
+        properties:
+          type:
+            const: "review.report.v1"
+          payload:
+            type: object
+            required: ["summary", "findings"]
+            properties:
+              summary:
+                type: string
+                description: "High-level summary of the review"
+              findings:
+                type: array
+                items:
+                  type: object
+                  required: ["severity", "message"]
+                  properties:
+                    severity:
+                      type: string
+                      enum: ["info", "warning", "error", "critical", "security"]
+                    message:
+                      type: string
+                    line_number:
+                      type: integer
+                    suggestion:
+                      type: string
+              recommendations:
+                type: array
+                items:
+                  type: string
+
+  pr.comment.v1:
+    allOf:
+      - $ref: "#/base_message"
+      - type: object
+        properties:
+          type:
+            const: "pr.comment.v1"
+          payload:
+            type: object
+            required: ["comment_text", "file_path"]
+            properties:
+              comment_text:
+                type: string
+                description: "Comment content in markdown format"
+              file_path:
+                type: string
+                description: "File path for inline comments"
+              line_number:
+                type: integer
+                description: "Line number for inline comments"
+              comment_type:
+                type: string
+                enum: ["general", "suggestion", "nitpick", "blocking"]
+                default: "general"
+
+  handshake.v1:
+    allOf:
+      - $ref: "#/base_message"
+      - type: object
+        properties:
+          type:
+            const: "handshake.v1"
+          payload:
+            type: object
+            required: ["agent", "profiles", "capabilities"]
+            properties:
+              agent:
+                type: string
+                description: "Agent identifier"
+              profiles:
+                type: object
+                description: "Map of profile names to versions"
+                additionalProperties:
+                  type: string
+              capabilities:
+                type: object
+                properties:
+                  consumes:
+                    type: array
+                    items:
+                      type: string
+                    description: "Message types this agent can consume"
+                  produces:
+                    type: array
+                    items:
+                      type: string
+                    description: "Message types this agent can produce"
+
+# Error Response Schema
+error_response:
+  allOf:
+    - $ref: "#/base_message"
+    - type: object
+      properties:
+        type:
+          const: "error.v1"
+        payload:
+          type: object
+          required: ["error_code", "error_message"]
+          properties:
+            error_code:
+              type: string
+              description: "Standardized error code"
+            error_message:
+              type: string
+              description: "Human-readable error description"
+            details:
+              type: object
+              description: "Additional error context"
+
+# Standard Error Codes
+error_codes:
+  VALIDATION_ERROR: "Input validation failed"
+  PROCESSING_ERROR: "Error during request processing"
+  TIMEOUT_ERROR: "Request processing timeout"
+  RESOURCE_ERROR: "Required resource unavailable"
+  CAPABILITY_ERROR: "Requested capability not supported"
+  GOV_CONFLICT_KEY: "Governance rule conflict detected"

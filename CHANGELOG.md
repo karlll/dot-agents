@@ -4,7 +4,13 @@ All notable changes to the dot-agents multi-agent system specifications and agen
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.0] - 2025-01-15
+## [v1.1] - 2025-09-14
+
+### Updated
+
+Rephrasing and editing of specs to be clearer and more concise.
+
+## [v1.0] - 2025-09-13
 
 ### Added
 - **Initial Release**: Complete rework of repository structure to support multi-agent system
@@ -30,8 +36,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 | Version | Release Date | Type | Description |
 |---------|--------------|------|-------------|
-| v1.0    | 2025-01-15   | Major | Initial multi-agent system release |
-
+| v1.0    | 2025-09-13   | Major | Initial multi-agent system release |
+| v1.1    | 2025-09-14   | Minor | Clarifications and rephrasing of specifications |
 ---
 
 

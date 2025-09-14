@@ -13,9 +13,9 @@ Organize agents and their instructions.
   governance@1.0.md            # Precedence rules, conflict resolution, update process
 
 /agents/
-  planner/agent.md             # Planner agent definition
-  se-automation/agent.md       # Software Engineering Automation agent definition
-  data-research/agent.md       # Research/knowledge retrieval agent definition
+  planner/agent.md             # <example> Planner agent definition
+  se-automation/agent.md       # <example> Software Engineering Automation agent definition
+  data-research/agent.md       # <example> Research/knowledge retrieval agent definition
 
 CHANGELOG.md                   # Records version history of specs and agents
 README.md                      # This file

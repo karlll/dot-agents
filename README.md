@@ -1,6 +1,6 @@
 # dot-agents
 
-A modular, versioned multi-agent system that organizes agents and shared rules into a consistent, scalable architecture. The design ensures consistency across agents while allowing specialization and evolution.
+Organize agents and their instructions.
 
 ## Repository Structure
 
@@ -81,72 +81,3 @@ Each agent follows the same basic pattern:
 }
 ```
 
-## Available Agents
-
-### 🎯 Planner Agent
-**Purpose**: Break down complex tasks into manageable, actionable plans
-- Analyzes requirements and constraints
-- Creates step-by-step execution strategies
-- Identifies dependencies and resource needs
-- Provides alternative approaches
-
-### 🔧 SE-Automation Agent  
-**Purpose**: Automate software engineering workflows and code review
-- Automated code quality assessment
-- Security vulnerability detection
-- Style and convention enforcement
-- CI/CD optimization guidance
-
-### 🔍 Data-Research Agent
-**Purpose**: Information gathering and knowledge synthesis
-- Technical research and analysis
-- Best practice identification
-- Trend analysis and recommendations
-- Evidence-based decision support
-
-## Safety and Security
-
-This system is designed with safety as the highest priority:
-- **No Override of Safety Rules**: Safety specifications cannot be modified by agents
-- **Human Oversight**: Security decisions require human confirmation
-- **Data Protection**: Comprehensive privacy and sensitive data protocols
-- **Audit Trails**: All governance decisions and safety events are logged
-
-## Versioning and Updates
-
-### Semantic Versioning
-- **Major versions** (X.0): Breaking changes requiring agent updates
-- **Minor versions** (X.Y): Backward-compatible improvements
-
-### Update Process
-- **Specifications**: Follow formal review and testing process
-- **Agents**: Pin to specific profile versions, override minimally
-- **Governance**: Automatic conflict resolution with escalation procedures
-
-## Contributing
-
-### For Specification Updates
-1. Submit proposals with clear rationale
-2. Include migration notes for breaking changes
-3. Test compatibility with existing agents
-4. Update CHANGELOG.md with affected components
-
-### For New Agents  
-1. Follow agent definition template structure
-2. Reference appropriate profile versions
-3. Minimize overrides and document rationale
-4. Include comprehensive examples and integration points
-
-### For Bug Reports
-1. Specify affected specifications and versions
-2. Include agent configurations and error messages
-3. Provide steps to reproduce issues
-4. Suggest potential resolutions
-
-## License
-
-[Specify your license here]
-
-## Support
-
-For questions, issues, or contributions, please refer to the governance specification for escalation procedures and contact information.

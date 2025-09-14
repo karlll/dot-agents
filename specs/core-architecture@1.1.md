@@ -1,7 +1,7 @@
-# Core Architecture Specification v1.0
+# Core Architecture Specification
 
 ## Overview
-This specification defines the fundamental architectural principles and patterns that all agents within the dot-agents system must follow.
+This specification defines the fundamental architectural principles and patterns that all agents must follow.
 
 ## Architectural Principles
 
@@ -61,6 +61,6 @@ This specification defines the fundamental architectural principles and patterns
 4. Clean up resources
 
 ## Version
-- Version: 1.0
+- Version: 1.1
 - Compatibility: All agents must implement these core patterns
 - Breaking changes require major version increment

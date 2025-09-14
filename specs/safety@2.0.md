@@ -1,4 +1,4 @@
-# Safety Specification v1.0
+# Safety Specification v2.0
 
 ## Overview
 This specification defines mandatory safety protocols, refusal policies, and sensitive data handling procedures for all agents within the dot-agents system.
@@ -133,13 +133,6 @@ All safety-related events must be logged with:
 - Support forensic investigation when needed
 - Ensure log integrity and authenticity
 
-### Compliance Frameworks
-This specification supports compliance with:
-- GDPR (General Data Protection Regulation)
-- SOC 2 (Service Organization Control 2)
-- ISO 27001 (Information Security Management)
-- NIST Cybersecurity Framework
-
 ## Monitoring and Alerting
 
 ### Continuous Monitoring
@@ -184,7 +177,7 @@ This specification supports compliance with:
 - Emergency shutdown procedures
 
 ## Version Information
-- Version: 1.0
+- Version: 2.0
 - Compliance: Mandatory for all agents
 - Override level: Highest priority (no agent overrides permitted)
 - Review cycle: Quarterly with immediate updates for critical issues

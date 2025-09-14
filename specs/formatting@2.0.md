@@ -1,13 +1,13 @@
-# Formatting Specification v1.0
+# Formatting Specification v2.0
 
 ## Overview
-This specification defines consistent formatting, style, and documentation standards for all agents within the dot-agents system.
+
+This specification defines consistent formatting, style, and documentation standards.
 
 ## Markdown Standards
 
 ### Document Structure
-- Use hierarchical headings (H1 for major sections, H2 for subsections, etc.)
-- Include table of contents for documents longer than 500 words
+- Use hierarchical headings (H1 for root heading - one per document, H2 for major sections, H3 for subsections, etc.)
 - Use consistent spacing: one blank line between sections, two before major headings
 
 ### Code Blocks
@@ -46,10 +46,10 @@ def example_function():
 - Start functions with docstrings describing purpose, parameters, and return values
 - Use inline comments for complex logic only
 - Keep comments current with code changes
+- Inline tags `TODO`` and `FIXME` are permitted for future work notes, where applicable
 
 ### Error Messages
 - Use clear, actionable error messages
-- Include error codes following the pattern: `COMPONENT:TYPE:DETAIL`
 - Provide suggestions for resolution when possible
 
 ## Agent Response Formatting
@@ -62,10 +62,10 @@ def example_function():
 
 ### Severity Indicators
 Use consistent formatting for different severity levels:
-- 🔴 **Critical**: Issues requiring immediate attention
-- 🟠 **Warning**: Issues requiring attention but not blocking
-- 🟡 **Advisory**: Suggestions for improvement
-- 🟢 **Info**: Informational content
+- ⛔️ **Critical**: Issues requiring immediate attention
+- ⚠️ **Warning**: Issues requiring attention but not blocking
+- 👉 **Advisory**: Suggestions for improvement
+- ℹ️ **Info**: Informational content
 - 🔒 **Security**: Security-related concerns
 
 ### Code Review Comments
@@ -77,9 +77,8 @@ Use consistent formatting for different severity levels:
 ## File and Directory Naming
 
 ### General Rules
-- Use lowercase with hyphens for directory names
+- Use lowercase with hyphens for directory names, i.e. `kebab-case`
 - Use descriptive names that indicate purpose
-- Include version numbers in spec files using `@X.Y` format
 - Use `.md` extension for documentation, `.yaml` for schemas
 
 ### Agent Files
@@ -90,7 +89,10 @@ Use consistent formatting for different severity levels:
 ## Version Control Messages
 
 ### Commit Messages
-Format: `type(scope): description`
+
+Write a commit message where the first line is a concise summary (50 characters or less), followed by a blank line, and then a more detailed explanation if necessary (for trivial, minor or small changes a single line is usually enough). Use the below format for the summary line:
+
+Format: `type(scope?): description` // scope is optional
 
 Types:
 - `feat`: New feature or capability
@@ -104,6 +106,7 @@ Types:
 - `feat(agents): add data-research agent definition`
 - `fix(specs): correct io-protocol schema validation`
 - `docs(readme): update repository structure documentation`
+- `docs: fixing typos in multiple files`
 
 ## Validation Rules
 
@@ -129,6 +132,6 @@ Agents may override the following formatting defaults:
 - `link_style.preference`: Inline vs reference links
 
 ## Version Information
-- Version: 1.0
+- Version: 2.0
 - Compatibility: Required for all agents
 - Override level: Low priority (agents may customize within guidelines)

@@ -3,13 +3,13 @@
 ```yaml
 profiles:
   - name: core-architecture
-    version: "1.0"
+    version: "1.1"
   - name: io-protocol
-    version: "1.0"
+    version: "1.1"
   - name: formatting
-    version: "1.0"
+    version: "2.0"
   - name: safety
-    version: "1.0"
+    version: "2.0"
 overrides:
   formatting.code_blocks.language_default: "python"
   formatting.severity_indicators.style: "emoji"

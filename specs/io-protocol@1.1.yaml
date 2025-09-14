@@ -1,6 +1,6 @@
-# I/O Protocol Specification v1.0
-version: "1.0"
-description: "Standard input/output message schemas and contracts for dot-agents system"
+# I/O Protocol Specification
+version: "1.1"
+description: "Standard input/output message schemas and contracts"
 
 # Base Message Schema
 base_message:

@@ -17,6 +17,10 @@ Organize agents and their instructions.
   se-automation/agent.md       # <example> Software Engineering Automation agent definition
   data-research/agent.md       # <example> Research/knowledge retrieval agent definition
 
+/scripts/                      # Scripts for building and formatting prompts 
+
+/prompts/                      # Store, reuse and refine various prompts
+
 CHANGELOG.md                   # Records version history of specs and agents
 README.md                      # This file
 ```
